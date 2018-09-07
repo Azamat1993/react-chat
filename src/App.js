@@ -4,8 +4,6 @@ import logo from './logo.svg';
 
 class App extends Component {
   render() {
-
-    get('WebSocket');
     return (
       <div>ad</div>
     );

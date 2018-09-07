@@ -9,7 +9,9 @@ export class WebSocket {
   initialize() {
     this.ws = new WebSocketSubject('ws://localhost:8080');
 
-    this.ws.subscribe((response) => {
+    this.ws.pipe(
+      retry()
+    ).subscribe((response) => {
       console.log(response);
     });
   }
