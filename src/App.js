@@ -16,7 +16,7 @@ class App extends Component {
       <Container>
         <Sidebar />
         <InboxMenu />
-        <UserList />
+        <UserList authenticated={true}/>
       </Container>
     );
   }
