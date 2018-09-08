@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import App from './App';
 import { Sidebar } from './modules/sidebar/components';
 import { InboxMenu } from './modules/inbox-menu/components';
+import { UserList } from './modules/user-list/components';
 
 configure({adapter: new Adapter()})
 
@@ -30,5 +31,9 @@ describe('App', () => {
 
   it('should render InboxMenu', () => {
     expect(wrapper.find(InboxMenu).length).toBe(1);
+  });
+
+  it('should render UserList', () => {
+    expect(wrapper.find(UserList).length).toBe(1);
   });
 });

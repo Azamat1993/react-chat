@@ -10,8 +10,6 @@ import registerServiceWorker from './registerServiceWorker';
 import * as providers from './providers';
 import * as instances from './instances';
 
-console.log(providers);
-
 initialize({
   providers: Object.keys(providers).map(i => providers[i]),
   instances: Object.keys(instances).map(i => instances[i])
