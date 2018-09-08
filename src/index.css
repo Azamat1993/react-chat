@@ -7,3 +7,8 @@
 html {
   font: 10px sans-serif;
 }
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+}
