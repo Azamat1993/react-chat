@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-import { get } from 'js-dep-inj';
-import logo from './logo.svg';
+
+import { Sidebar } from './modules/sidebar/components';
 
 class App extends Component {
   render() {
     return (
-      <div>ad</div>
+      <div>
+        <Sidebar />
+      </div>
     );
   }
 }
