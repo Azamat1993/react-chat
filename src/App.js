@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 import { Sidebar } from './modules/sidebar/components';
+import { InboxMenu } from './modules/inbox-menu/components';
 
 const Container = styled.div`
   display: flex;
@@ -13,6 +14,7 @@ class App extends Component {
     return (
       <Container>
         <Sidebar />
+        <InboxMenu />
       </Container>
     );
   }
