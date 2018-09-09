@@ -9,7 +9,9 @@ export class Sidebar extends PureComponent {
     const { apps } = this.props;
     return <styles.Container>
       {apps.map(app => (
-        <Link key={app.name} to={app.link}/>
+        <Link key={app.name} to={app.link}>
+          {app.name}
+        </Link>
       ))}
     </styles.Container>
   }

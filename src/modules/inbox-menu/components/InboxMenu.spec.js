@@ -2,6 +2,7 @@ import React from 'react';
 import { shallow, configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import { Link } from 'react-router-dom';
+import { initialize } from 'js-dep-inj';
 
 import { InboxMenu } from './InboxMenu';
 import * as styles from './InboxMenu.styles';
@@ -42,7 +43,13 @@ const commTypes = [
     amount: 3,
     link: '/groups'
   }
-]
+];
+
+class AppAdapter {}
+
+initialize({
+  providers: [AppAdapter]
+})
 
 describe('InboxMenu', () => {
   let wrapper;

@@ -1,13 +1,25 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import { get } from 'js-dep-inj';
 
 import * as styles from './InboxMenu.styles.js';
+import { menuItems } from '../../../statics/Sidebar';
 
 export class InboxMenu extends PureComponent {
+  constructor() {
+    super();
+
+    this.appProvider = get('AppAdapter');
+  }
+
+  componentWillUpdate(nextProps) {
+    const {match: {params: {app} }} = nextProps;
+    this.appProvider.setApp(app);
+  }
+
   render() {
     const { messageTypes, commTypes } = this.props;
-
     const renderBox = (types) => {
       return <styles.Box>
         {renderElements(types)}
