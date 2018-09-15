@@ -17,6 +17,8 @@ export class Login extends Component {
     this.telegramApiProvider.invokeApi('auth.sendCode', {
       phone_number: '+77014495500',
       sms_type: 0,
+      api_id: process.env.API_ID,
+      api_hash: process.env.API_HASH,
       lang_code: 'en'
     }).then(res => console.log(res))
       .catch(err => console.error(err));
