@@ -8,12 +8,10 @@ var app = express();
 
 var port = process.env.API_PORT || 8080;
 
-console.log(port);
-
 app.listen(port);
 
 app.use(bodyParser.json());
-app.use(cors());
+app.use(cors())
 
 MtpProxy.init(
   (state) => new Promise((resolve, reject) => {
@@ -35,13 +33,9 @@ MtpProxy.init(
     })
   })
   , 'verbose').then(() => {
-    MtpProxy.mtpInvokeApi('auth.sendCode', {
-      phone_number: '+77014495500',
-      sms_type: 0,
-      api_id: 404313,
-      api_hash: '80cf01e174b3053074d2d0a8e3a5337f',
-      lang_code: 'en'
+    app.post('/telegram/:command', (req, res) => {
+      MtpProxy.mtpInvokeApi(req.params.command, req.body)
+        .then(r => res.send(r))
+        .catch(err => res.send(err));
     })
-      .then(r => res.send(r))
-      .catch(err => res.send(err));
   });
