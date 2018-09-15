@@ -35,8 +35,4 @@ describe('App', () => {
   xit('should render InboxMenu', () => {
     expect(wrapper.find(InboxMenu).length).toBe(1);
   });
-
-  it('should render UserList', () => {
-    expect(wrapper.find(UserList).length).toBe(1);
-  });
 });

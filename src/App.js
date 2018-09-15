@@ -4,7 +4,6 @@ import { Route } from 'react-router-dom';
 
 import { Sidebar } from './modules/sidebar/components';
 import { InboxMenu } from './modules/inbox-menu/components';
-import { UserList } from './modules/user-list/components';
 
 import { menuItems } from './statics/Sidebar';
 import { messageTypes, commTypes } from './statics/InboxMenu';
@@ -21,7 +20,6 @@ class App extends Component {
         <Sidebar apps={menuItems}/>
         <Route path={`:app(${menuItems.map(menuItem => menuItem.link).join('|')})`}
           component={(props) => <InboxMenu messageTypes={messageTypes} commTypes={commTypes} {...props}/>} />
-        <UserList authenticated={true}/>
       </Container>
     );
   }

@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import { get } from 'js-dep-inj';
+import { Route } from 'react-router-dom';
 
 import * as styles from './InboxMenu.styles.js';
 import { menuItems } from '../../../statics/Sidebar';
+import { UserList } from '../../user-list/components';
 
 export class InboxMenu extends PureComponent {
   constructor(props) {
@@ -17,6 +19,7 @@ export class InboxMenu extends PureComponent {
 
   render() {
     const { messageTypes, commTypes, match } = this.props;
+    const authenticated = this.appProvider.isAuthenticated();
     const renderBox = (types) => {
       return <styles.Box>
         {renderElements(types)}
@@ -32,7 +35,7 @@ export class InboxMenu extends PureComponent {
     }
 
     const renderContent = () => {
-      if (!this.appProvider.isAuthenticated()) {
+      if (!authenticated) {
         // @todo should auth page
         return 'should auth';
       }
@@ -45,9 +48,12 @@ export class InboxMenu extends PureComponent {
       </React.Fragment>
     }
 
-    return <styles.Container>
-      {renderContent()}
-    </styles.Container>
+    return <React.Fragment>
+        <styles.Container>
+          {renderContent()}
+        </styles.Container>
+        <UserList authenticated={authenticated}/>
+      </React.Fragment>
   }
 }
 
