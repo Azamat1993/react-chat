@@ -8,7 +8,7 @@ export const menuItems = [
   {
     name: 'whatsapp',
     adapter: 'WhatsappAdapter',
-    icon: 'whatsapp.svg',
+    icon: 'whatsapp.png',
     link: 'whatsapp'
   }
 ]

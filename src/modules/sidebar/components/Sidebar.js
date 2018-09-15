@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import * as styles from './Sidebar.styles';
@@ -9,9 +8,9 @@ export class Sidebar extends PureComponent {
     const { apps } = this.props;
     return <styles.Container>
       {apps.map(app => (
-        <Link key={app.name} to={app.link}>
-          {app.name}
-        </Link>
+        <styles.Link activeClassName="is-active" key={app.name} to={app.link}>
+          <styles.Img src={require(`../icons/${app.icon}`)} />
+        </styles.Link>
       ))}
     </styles.Container>
   }
