@@ -19,7 +19,7 @@ class App extends Component {
     return (
       <Container>
         <Sidebar apps={menuItems}/>
-        <Route path={`/:app(${menuItems.map(menuItem => menuItem.link).join('|')})`}
+        <Route path={`:app(${menuItems.map(menuItem => menuItem.link).join('|')})`}
           component={(props) => <InboxMenu messageTypes={messageTypes} commTypes={commTypes} {...props}/>} />
         <UserList authenticated={true}/>
       </Container>
