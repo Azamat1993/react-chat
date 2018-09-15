@@ -16,12 +16,14 @@ const Container = styled.div`
 
 class App extends Component {
   render() {
+    const paths = `:app(${menuItems.map(menuItem => menuItem.link).join('|')})`;
+
     return (
       <Container>
         <Sidebar apps={menuItems}/>
-        <Route path={`:app(${menuItems.map(menuItem => menuItem.link).join('|')})`}
+        <Route path={paths}
           component={(props) => <InboxMenu messageTypes={messageTypes} commTypes={commTypes} {...props}/>} />
-        <Main />
+        <Route path={paths} component={Main}/>
       </Container>
     );
   }
