@@ -31,11 +31,22 @@ export class InboxMenu extends PureComponent {
       ))
     }
 
+    const renderContent = () => {
+      if (!this.appProvider.isAuthenticated()) {
+        // @todo should auth page
+        return 'should auth';
+      }
+
+      return <React.Fragment>
+        {renderBox(messageTypes)}
+        <styles.Hr />
+        {renderBox(commTypes)}
+        <styles.Hr />
+      </React.Fragment>
+    }
+
     return <styles.Container>
-      {renderBox(messageTypes)}
-      <styles.Hr />
-      {renderBox(commTypes)}
-      <styles.Hr />
+      {renderContent()}
     </styles.Container>
   }
 }

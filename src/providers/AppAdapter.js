@@ -17,4 +17,8 @@ export class AppAdapter implements AppAdapterInterface {
     }
     this.app = get(menuItems.find(menuItem => menuItem.name === appName).adapter);
   }
+
+  isAuthenticated() {
+    return this.app.isAuthenticated();
+  }
 }
