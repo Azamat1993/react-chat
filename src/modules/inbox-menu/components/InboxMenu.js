@@ -6,20 +6,12 @@ import * as styles from './InboxMenu.styles.js';
 import { menuItems } from '../../../statics/Sidebar';
 
 export class InboxMenu extends PureComponent {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this.appProvider = get('AppAdapter');
-  }
 
-  componentWillUpdate(nextProps) {
-    const {match: {params: {app} }} = nextProps;
-    this.appProvider.setApp(app);
-  }
-
-  componentDidMount() {
-    const {match: {params: {app} }} = this.props;
-    console.log(app);
+    const {match: {params: {app} }} = props;
     this.appProvider.setApp(app);
   }
 
