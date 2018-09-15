@@ -4,3 +4,4 @@ export * from './WebSocket';
 export * from './AppAdapter';
 export * from './WhatsappAdapter';
 export * from './TelegramAdapter';
+export * from './TelegramApiProvider';

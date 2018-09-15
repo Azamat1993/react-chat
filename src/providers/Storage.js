@@ -1,9 +1,9 @@
 const storageKey = 'storageKey';
 
 export class Storage {
-  getStore = () => {
+  getStore = (key= storageKey) => {
        try {
-           const serializedState = localStorage.getItem(storageKey);
+           const serializedState = localStorage.getItem(key);
            if (serializedState === null) {
                return undefined;
            }
@@ -13,18 +13,18 @@ export class Storage {
        }
    }
 
-   setStore = (state) => {
+   setStore = (state, key= storageKey) => {
        try {
            const serializedState = JSON.stringify(state);
-           localStorage.setItem(storageKey, serializedState);
+           localStorage.setItem(key, serializedState);
        } catch (err) {
            // @todo?
        }
    }
 
-   removeStore = () => {
+   removeStore = (key= storageKey) => {
        try {
-           localStorage.removeItem(storageKey);
+           localStorage.removeItem(key);
        } catch (err) {
            // @todo?
        }

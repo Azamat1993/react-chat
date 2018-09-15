@@ -1,1 +1,2 @@
-const wss = require('./ws');
+require('dotenv').config();
+const mtp = require('./mtp');
