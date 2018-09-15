@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { get } from 'js-dep-inj';
 
@@ -28,9 +27,9 @@ export class InboxMenu extends PureComponent {
 
     const renderElements = (types) => {
       return types.map((type, i) => (
-        <Link key={i} to={match.url + type.link}>
+        <styles.Link key={i} to={match.url + type.link}>
           {type.title}
-        </Link>
+        </styles.Link>
       ))
     }
 
