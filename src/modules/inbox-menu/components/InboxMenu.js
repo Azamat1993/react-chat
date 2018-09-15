@@ -17,6 +17,12 @@ export class InboxMenu extends PureComponent {
     this.appProvider.setApp(app);
   }
 
+  componentDidMount() {
+    const {match: {params: {app} }} = this.props;
+    console.log(app);
+    this.appProvider.setApp(app);
+  }
+
   render() {
     const { messageTypes, commTypes, match } = this.props;
     const renderBox = (types) => {

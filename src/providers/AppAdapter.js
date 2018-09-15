@@ -12,6 +12,10 @@ export class AppAdapter implements AppAdapterInterface {
   }
 
   setApp(appName: string) {
+    if (appName.charAt(0) === '/') {
+      appName = appName.substr(1);
+    }
+
     this.app = get(menuItems.find(menuItem => menuItem.name === appName).adapter);
   }
 }
