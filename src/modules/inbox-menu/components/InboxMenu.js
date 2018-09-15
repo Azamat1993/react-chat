@@ -19,7 +19,7 @@ export class InboxMenu extends PureComponent {
   }
 
   render() {
-    const { messageTypes, commTypes } = this.props;
+    const { messageTypes, commTypes, match } = this.props;
     const renderBox = (types) => {
       return <styles.Box>
         {renderElements(types)}
@@ -28,7 +28,9 @@ export class InboxMenu extends PureComponent {
 
     const renderElements = (types) => {
       return types.map((type, i) => (
-        <Link key={i} to={type.link}></Link>
+        <Link key={i} to={match.url + type.link}>
+          {type.title}
+        </Link>
       ))
     }
 
@@ -57,7 +59,7 @@ InboxMenu.propTypes = {
   commTypes: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      amount: PropTypes.number.isRequired,
+      amount: PropTypes.number,
       link: PropTypes.string.isRequired
     })
   )

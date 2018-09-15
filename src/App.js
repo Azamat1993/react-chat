@@ -7,6 +7,7 @@ import { InboxMenu } from './modules/inbox-menu/components';
 import { UserList } from './modules/user-list/components';
 
 import { menuItems } from './statics/Sidebar';
+import { messageTypes, commTypes } from './statics/InboxMenu';
 
 const Container = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ class App extends Component {
       <Container>
         <Sidebar apps={menuItems}/>
         <Route path={`/:app(${menuItems.map(menuItem => menuItem.link).join('|')})`}
-          component={InboxMenu}/>
+          component={(props) => <InboxMenu messageTypes={messageTypes} commTypes={commTypes} {...props}/>} />
         <UserList authenticated={true}/>
       </Container>
     );
