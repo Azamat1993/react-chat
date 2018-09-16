@@ -36,6 +36,6 @@ MtpProxy.init(
     app.post('/telegram/:command', (req, res) => {
       MtpProxy.mtpInvokeApi(req.params.command, req.body)
         .then(r => res.send(r))
-        .catch(err => res.send(err));
+        .catch(err => res.status(500).send(err));
     })
   });

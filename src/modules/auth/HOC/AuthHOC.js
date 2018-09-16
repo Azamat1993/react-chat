@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import { Login } from '../components/Login';
 import { get } from 'js-dep-inj';
 
 export default (ComposedComponent) => {
@@ -13,7 +12,7 @@ export default (ComposedComponent) => {
 
     render() {
       if (!this.appProvider.isAuthenticated()) {
-        return <Login />;
+        return this.appProvider.authComponent();
       }
 
       return <ComposedComponent {...this.props}/>;

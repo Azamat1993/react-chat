@@ -1,11 +1,20 @@
 // @flow
 
-import { AppAdapterInterface } from './AppAdapter.interface';
+import {AppAdapterInterface} from './AppAdapter.interface';
 
 export class WhatsappAdapter implements AppAdapterInterface {
-  render() {}
+    render() {
+    }
 
-  isAuthenticated() {
-    return false;
-  }
+    isAuthenticated() {
+        return false;
+    }
+
+    authComponent() {
+        return null;
+    }
+
+    logout() {
+        // @todo
+    }
 }

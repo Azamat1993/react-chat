@@ -1,11 +1,26 @@
 // @flow
+import React from 'react';
+import {AppAdapterInterface} from './AppAdapter.interface';
+import {get} from 'js-dep-inj';
 
-import { AppAdapterInterface } from './AppAdapter.interface';
+import {Auth} from '../modules/telegram/components';
 
 export class TelegramAdapter implements AppAdapterInterface {
-  render() {}
+    store = get('Store').instance;
+    telegramApiProvider = get('TelegramApiProvider');
 
-  isAuthenticated() {
-    return true;
-  }
+    render() {
+    }
+
+    isAuthenticated() {
+        return this.store.getState().telegram.isAuthenticated;
+    }
+
+    authComponent() {
+        return <Auth />;
+    }
+
+    logout() {
+        this.telegramApiProvider.invokeApi('auth.logOut');
+    }
 }
