@@ -9,8 +9,12 @@ class Main extends Component {
     appAdapter = get('AppAdapter');
 
     componentDidMount() {
-        this.telegramApiProvider.invokeApi('account.checkUsername', {
-            username: 'asdsadasds'
+        this.telegramApiProvider.invokeApi('messages.getDialogs', {
+            offset_peer: {
+                _: 'inputPeerEmpty'
+            },
+            limit: 100,
+            offset_date: 0
         })
             .then((res) => {
                 console.log(res);
