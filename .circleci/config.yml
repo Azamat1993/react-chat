@@ -17,7 +17,7 @@ jobs:
       - run: npm test
   hithere:
     docker:
-      - iamge: circleci/node:8.9
+      - image: circleci/node:8.9
     steps:
       - checkout
       - run: echo "helloooooooooo there"
