@@ -1,7 +1,9 @@
 import {combineReducers} from 'redux';
 
+import telegram from './telegram/reducer';
+
 const reducers = combineReducers({
-    auth: (state = {}, action = {}) => {return state}
+    telegram
 });
 
 export default reducers;
